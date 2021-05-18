@@ -309,3 +309,156 @@ collections:
         label: "Published On"
         widget: "datetime"
         required: false
+  - name: "index"
+    label: "index"
+    folder: "site/index"
+    create: true
+    identifier_field: "name"
+    extension: "md"
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - label: "Tags"
+        widget: "hidden"
+        name: "tags"
+        default: "index"
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+      - label: "Layout"
+        widget: "hidden"
+        name: "layout"
+        default: "single-index.html"
+      - label: "Seo"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+            required: false
+          - label: "Description"
+            name: "description"
+            widget: "string"
+            required: false
+          - label: "Open Graph Image"
+            name: "og:image"
+            widget: "image"
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: "Twitter Card"
+            name: "twitter:card"
+            widget: "string"
+            default: "summary"
+            required: false
+          - label: "Twitter Site"
+            name: "twitter:site"
+            widget: "string"
+            required: false
+          - label: "Twitter Creator"
+            name: "twitter:creator"
+            widget: "string"
+            required: false
+          - label: "Additional HTML tags"
+            name: "additional_tags"
+            widget: "text"
+            required: false
+      - name: "edition"
+        label: "Edition"
+        widget: "string"
+        required: false
+      - name: "white-card-title"
+        label: "White card title"
+        widget: "string"
+        required: false
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
+      - name: "concept"
+        label: "Concept"
+        widget: "markdown"
+        required: false
+      - name: "workshops"
+        label: "Workshops"
+        widget: "markdown"
+        required: false
+      - name: "info"
+        label: "Info"
+        widget: "markdown"
+        required: false
+      - widget: "object"
+        name: "map"
+        label: "Map"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - name: "partners"
+        label: "Partners"
+        widget: "markdown"
+        required: false
+      - widget: "object"
+        name: "partner-1-logo"
+        label: "Partner 1 logo"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - name: "partner-1-link"
+        label: "Partner 1 link (URL)"
+        widget: "string"
+        required: false
+      - widget: "object"
+        name: "partner-2-logo"
+        label: "Partner 2 logo"
+        fields:
+          - widget: "image"
+            name: "url"
+            label: "Image"
+            allow_multiple: false
+            required: false
+          - widget: "string"
+            name: "alt"
+            label: "Alt Text"
+            required: false
+      - name: "partner-2-link"
+        label: "Partner 2 link (URL)"
+        widget: "string"
+        required: false
+      - name: "links"
+        label: "Links"
+        widget: "markdown"
+        required: false
+      - name: "name"
+        label: "Name"
+        widget: "string"
+        required: true
+      - name: "created-on"
+        label: "Created On"
+        widget: "datetime"
+        required: false
+      - name: "updated-on"
+        label: "Updated On"
+        widget: "datetime"
+        required: false
+      - name: "published-on"
+        label: "Published On"
+        widget: "datetime"
+        required: false

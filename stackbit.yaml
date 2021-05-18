@@ -17,3 +17,7 @@ models:
     type: "page"
     label: "Artists"
     urlPath: "/artist/{slug}"
+  index:
+    type: "page"
+    label: "index"
+    urlPath: "/index/{slug}"
