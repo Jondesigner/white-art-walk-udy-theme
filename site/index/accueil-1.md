@@ -116,7 +116,7 @@ links: >-
 
 
   **Jonathan Lapierre** | Graphiste & Web designer | [www.jonathanlapierre.be](http://www.jonathanlapierre.be/) | [www.creatsy.be](https://www.creatsy.be/)
-name: Accueil
+name: Accueil old
 created-on: 2021-05-18T16:55:32.770Z
 slug: accueil
 updated-on: 2021-05-18T16:55:32.783Z
