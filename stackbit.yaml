@@ -1,0 +1,19 @@
+stackbitVersion: "~0.3.0"
+ssgName: "custom"
+buildCommand: "npx @11ty/eleventy"
+publishDir: "public"
+staticDir: "static"
+uploadDir: "images"
+pagesDir: "site"
+metadata:
+  title: "White Art Walk"
+  description: "Theme created in Webflow and converted with Udesly"
+models:
+  place:
+    type: "page"
+    label: "Places"
+    urlPath: "/place/{slug}"
+  artist:
+    type: "page"
+    label: "Artists"
+    urlPath: "/artist/{slug}"

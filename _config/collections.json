@@ -1,0 +1,10 @@
+{
+  "-6244ff67": {
+    "collection": "place",
+    "query": {
+      "sort": [
+        "place-number"
+      ]
+    }
+  }
+}
