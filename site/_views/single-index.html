@@ -124,13 +124,11 @@
     <div class="w-container">
       <div class="content w-clearfix">
         <a href="#scroll-to" class="link-scroll-to w-inline-block">
-          <h2 class="heading-title"></h2>
-          <div class="baseline w-hidden-medium w-hidden-small w-hidden-tiny"></div>
+          <h2 class="heading-title">{{ item.data.edition }}</h2>
+          <div class="baseline w-hidden-medium w-hidden-small w-hidden-tiny">{{ item.data['white-card-title'] }}</div>
         </a>
         <div class="black-box">
-          <div class="intro-txt-richtxt w-richtext">
-            <p>Les artistes ouvrent leurs ateliers les week-ends des<br><strong class="black-box-strong">22</strong> - <strong class="black-box-strong">23</strong> et <strong class="black-box-strong">29</strong> - <strong class="black-box-strong">30</strong> <strong class="black-box-strong">avril</strong> <strong class="black-box-strong">2017</strong><br>de <strong class="black-box-strong">11h</strong> à <strong class="black-box-strong">19h</strong></p>
-          </div>
+          <div class="intro-txt-richtxt w-richtext">{{ item.templateContent | markdown }}</div>
         </div>
       </div>
     </div>
@@ -142,7 +140,7 @@
         <div class="picto"><img src="/static/images/concept.svg" alt="" class="icon"></div>
       </div>
       <div class="content">
-        <div class="rich-text w-richtext"></div>
+        <div class="rich-text w-richtext">{{ item.data.concept | markdown }}</div>
       </div>
     </div>
   </section>
@@ -153,37 +151,37 @@
           <div class="picto"><img src="/static/images/atelier.svg" alt="" class="icon"></div>
         </div>
         <div class="content">
-          <div class="rich-text w-richtext"></div>
+          <div class="rich-text w-richtext">{{ item.data.workshops | markdown }}</div>
         </div>
       </div>
     </div>
     <div class="wrapper">
-      <div class="collection-list-wrapper w-dyn-list">
-        <div role="list" class="w-dyn-items w-row">
-          <div role="listitem" class="w-dyn-item w-col w-col-4">
+      {%- assign collectionId = "main" -%}{%- assign collection = collections["-6244ff67"][collectionId] -%}<div class="collection-list-wrapper w-dyn-list">
+        {%- if collection.length > 0 -%}<div role="list" class="w-dyn-items w-row">
+          {%- for item in collection -%}<div role="listitem" class="w-dyn-item w-col w-col-4">
             <div data-ix="tumbnail-hover" class="place-item">
-              <a href="#" class="thumbnail-wrapper w-inline-block">
+              <a href="{{ item.url }}" class="thumbnail-wrapper w-inline-block">
                 <div class="thumbnail-hover">
-                  <div class="num"></div>
+                  <div class="num">{{ item.data['place-number'] }}</div>
                   <div class="num-triangle"></div>
                   <div class="place-txt-block">
                     <div>Lieu de</div>
-                    <h2 class="item-name"></h2>
+                    <h2 class="item-name">{{ item.data.name }}</h2>
                   </div>
                   <div class="address-item">
-                    <p class="hours"></p>
+                    <p class="hours">{{ item.data['opening-hours'] }}</p>
                     <p class="item-sep-list">|</p>
-                    <p class="exhibitors"></p>
+                    <p class="exhibitors">{{ item.data['number-of-exhibitors'] }}</p>
                   </div>
                 </div>
-                <div class="image-wrapper"><img src="/static/" alt="" class="thumbnail-image"></div>
+                <div class="image-wrapper"><img src="{{ item.data['featured-artwork'].url | escape }}" alt="{{ item.data['featured-artwork'].alt | escape }}" class="thumbnail-image"></div>
               </a>
             </div>
-          </div>
-        </div>
-        <div class="w-dyn-empty">
+          </div>{%- endfor -%}
+        </div>{%- endif -%}
+        {%- unless collection.length > 0 -%}<div class="w-dyn-empty">
           <div>No items found.</div>
-        </div>
+        </div>{%- endunless -%}
       </div>
     </div>
   </section>
@@ -194,10 +192,10 @@
           <div class="picto"><img src="/static/images/info.svg" alt="" class="icon info"></div>
         </div>
         <div class="content">
-          <div class="rich-text w-richtext"></div>
+          <div class="rich-text w-richtext">{{ item.data.info | markdown }}</div>
         </div>
       </div>
-      <div class="w-container"><img src="/static/" loading="lazy" width="1223" alt="Plan du WAW Rixensart"></div>
+      <div class="w-container"><img loading="lazy" width="1223" alt="{{ item.data.map.alt | escape }}" src="{{ item.data.map.url | escape }}"></div>
     </div>
     <div class="wrapper">
       <div data-disable-scroll="1" data-disable-touch="1" data-widget-latlng="50.715625,4.531036" data-widget-zoom="13" class="map w-widget w-widget-map"></div>
@@ -210,10 +208,10 @@
           <div class="picto"><img src="/static/images/sponsor.svg" alt="" class="icon"></div>
         </div>
         <div class="content">
-          <div class="rich-text w-richtext"></div>
+          <div class="rich-text w-richtext">{{ item.data.partners | markdown }}</div>
           <div class="w-clearfix">
-            <a href="#" class="sponsor-block w-inline-block"><img src="/static/" width="480" alt="" class="img-sponsor"></a>
-            <a href="#" class="sponsor-block last-sponsor-block w-inline-block"><img src="/static/" width="480" alt="" class="img-sponsor"></a>
+            <a href="{{ item.data['partner-1-link'] | escape }}" class="sponsor-block w-inline-block"><img src="{{ item.data['partner-1-logo'].url | escape }}" width="480" alt="{{ item.data['partner-1-link'] | escape }}" class="img-sponsor"></a>
+            <a href="{{ item.data['partner-2-link'] | escape }}" class="sponsor-block last-sponsor-block w-inline-block"><img src="{{ item.data['partner-2-logo'].url | escape }}" width="480" alt="{{ item.data['partner-2-logo'].alt | escape }}" class="img-sponsor"></a>
           </div>
         </div>
       </div>
@@ -226,7 +224,7 @@
           <div class="picto"><img src="/static/images/link.svg" width="64" alt="" class="icon"></div>
         </div>
         <div class="content">
-          <div class="rich-text w-richtext"></div>
+          <div class="rich-text w-richtext">{{ item.data.links | markdown }}</div>
         </div>
       </div>
     </div>
